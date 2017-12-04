@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
       #
     
       s.name         = "Navigation"
-      s.version      = "0.0.1"
+      s.version      = "0.0.2"
       s.summary      = "Navigation is a framework that provides an another look on iOS app screens navigation"
     
       # This description is used to generate tags and improve search results.
