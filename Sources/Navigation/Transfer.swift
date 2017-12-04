@@ -39,7 +39,7 @@ public class Transfer: Hashable {
     /**
      Configurator is a closure that creates a stage in a proper way.
      */
-    typealias Configurator = (Input) -> (Stage)
+    public typealias Configurator = (Input) -> (Stage)
     
     /**
      Holds a coupled information about input, source state and a destination state
@@ -64,7 +64,7 @@ public class Transfer: Hashable {
         - source: source state
         - destination: destination state
      */
-    init(_ input: Input, _ source: State, _ destination: State) {
+    public init(_ input: Input, _ source: State, _ destination: State) {
         hash = input.hashValue ^ source.hash()
         configurator = { _ in return destination.init() }
     }
@@ -78,7 +78,7 @@ public class Transfer: Hashable {
         - destination: destination state
         - configurator: destination stage configurator
      */
-    convenience init(_ input: Input, _ source: State, _ destination: State, _ configurator: @escaping Configurator) {
+    public convenience init(_ input: Input, _ source: State, _ destination: State, _ configurator: @escaping Configurator) {
         self.init(input, source, destination)
         
         self.configurator = configurator

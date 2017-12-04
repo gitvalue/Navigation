@@ -47,3 +47,16 @@ public protocol Gate {
     func trigger(with input: Input)
 }
 
+/**
+ Default implementation for Gate
+ */
+public extension Gate {
+    func trigger(with input: Input) {
+        let transfer = transferTable.first { t -> Bool in
+            return t == Transfer(input, type(of: currentStage), Stage.self)
+        }
+        
+        transfer?.trigger(from: currentStage, with: input)
+    }
+}
+
